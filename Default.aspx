@@ -14,7 +14,7 @@
         }
     </style>
 </head>
-<body>
+<body bgcolor="#E6E6FA">
     <form id="form1" runat="server">
     <div>
     
@@ -32,23 +32,28 @@
           <tr>
             <td class="auto-style2">Usuario</td>
             <td class="auto-style1">
-                <asp:TextBox ID="TextBox1" runat="server" Width="262px"></asp:TextBox>
+                <asp:TextBox ID="s_usuario" runat="server" Width="262px"></asp:TextBox>
               </td> 
             <td></td>
           </tr>
           <tr>
             <td class="auto-style2">Password</td>
             <td class="auto-style1">
-                <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" Width="262px"></asp:TextBox>
+                <asp:TextBox ID="s_password" runat="server" TextMode="Password" Width="262px"></asp:TextBox>
               </td> 
             <td></td>
           </tr>
           <tr>
             <td class="auto-style2"></td>
             <td class="auto-style1">
-                <asp:Button ID="i_sesion" runat="server" Text="Iniciar Sesion" />
+                <asp:Button ID="i_sesion" runat="server" OnClick="i_sesion_Click" Text="Iniciar Sesion" />
               </td> 
             <td></td>
+          </tr>
+            <tr>
+            <td>
+                <asp:Label ID="mensaje" runat="server"></asp:Label>
+                </td>
           </tr>
         </table>
     

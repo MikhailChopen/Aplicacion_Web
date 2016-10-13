@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Servicio/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Servicio/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Servicio/">
+      <s:element name="Crear_Usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carnet" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Crear_UsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Crear_UsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Iniciar_Sesion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="carnet" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Iniciar_SesionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Iniciar_SesionResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Leer_Usuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="Leer_UsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Leer_UsuariosResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Eliminar_Usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carnet" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Eliminar_UsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Actualizar_Usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carnet" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Actualizar_UsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Crear_Pedido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantidad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="carnet" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Crear_PedidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Crear_PedidoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Leer_pedidos">
+        <s:complexType />
+      </s:element>
+      <s:element name="Leer_pedidosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Leer_pedidosResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Eliminar_pedido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_pedido" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Eliminar_pedidoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Actualizar_Pedido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="i_id_pedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="i_pedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="i_cantidad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="i_carnet" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Actualizar_PedidoResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Crear_UsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:Crear_Usuario" />
+  </wsdl:message>
+  <wsdl:message name="Crear_UsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:Crear_UsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iniciar_SesionSoapIn">
+    <wsdl:part name="parameters" element="tns:Iniciar_Sesion" />
+  </wsdl:message>
+  <wsdl:message name="Iniciar_SesionSoapOut">
+    <wsdl:part name="parameters" element="tns:Iniciar_SesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Leer_UsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:Leer_Usuarios" />
+  </wsdl:message>
+  <wsdl:message name="Leer_UsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:Leer_UsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Eliminar_UsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:Eliminar_Usuario" />
+  </wsdl:message>
+  <wsdl:message name="Eliminar_UsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:Eliminar_UsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Actualizar_UsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:Actualizar_Usuario" />
+  </wsdl:message>
+  <wsdl:message name="Actualizar_UsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:Actualizar_UsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Crear_PedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:Crear_Pedido" />
+  </wsdl:message>
+  <wsdl:message name="Crear_PedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:Crear_PedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Leer_pedidosSoapIn">
+    <wsdl:part name="parameters" element="tns:Leer_pedidos" />
+  </wsdl:message>
+  <wsdl:message name="Leer_pedidosSoapOut">
+    <wsdl:part name="parameters" element="tns:Leer_pedidosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Eliminar_pedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:Eliminar_pedido" />
+  </wsdl:message>
+  <wsdl:message name="Eliminar_pedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:Eliminar_pedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Actualizar_PedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:Actualizar_Pedido" />
+  </wsdl:message>
+  <wsdl:message name="Actualizar_PedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:Actualizar_PedidoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="Crear_Usuario">
+      <wsdl:input message="tns:Crear_UsuarioSoapIn" />
+      <wsdl:output message="tns:Crear_UsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Iniciar_Sesion">
+      <wsdl:input message="tns:Iniciar_SesionSoapIn" />
+      <wsdl:output message="tns:Iniciar_SesionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Leer_Usuarios">
+      <wsdl:input message="tns:Leer_UsuariosSoapIn" />
+      <wsdl:output message="tns:Leer_UsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Usuario">
+      <wsdl:input message="tns:Eliminar_UsuarioSoapIn" />
+      <wsdl:output message="tns:Eliminar_UsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_Usuario">
+      <wsdl:input message="tns:Actualizar_UsuarioSoapIn" />
+      <wsdl:output message="tns:Actualizar_UsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Crear_Pedido">
+      <wsdl:input message="tns:Crear_PedidoSoapIn" />
+      <wsdl:output message="tns:Crear_PedidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Leer_pedidos">
+      <wsdl:input message="tns:Leer_pedidosSoapIn" />
+      <wsdl:output message="tns:Leer_pedidosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_pedido">
+      <wsdl:input message="tns:Eliminar_pedidoSoapIn" />
+      <wsdl:output message="tns:Eliminar_pedidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_Pedido">
+      <wsdl:input message="tns:Actualizar_PedidoSoapIn" />
+      <wsdl:output message="tns:Actualizar_PedidoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Crear_Usuario">
+      <soap:operation soapAction="http://Servicio/Crear_Usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Iniciar_Sesion">
+      <soap:operation soapAction="http://Servicio/Iniciar_Sesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Leer_Usuarios">
+      <soap:operation soapAction="http://Servicio/Leer_Usuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Usuario">
+      <soap:operation soapAction="http://Servicio/Eliminar_Usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_Usuario">
+      <soap:operation soapAction="http://Servicio/Actualizar_Usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crear_Pedido">
+      <soap:operation soapAction="http://Servicio/Crear_Pedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Leer_pedidos">
+      <soap:operation soapAction="http://Servicio/Leer_pedidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_pedido">
+      <soap:operation soapAction="http://Servicio/Eliminar_pedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_Pedido">
+      <soap:operation soapAction="http://Servicio/Actualizar_Pedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Crear_Usuario">
+      <soap12:operation soapAction="http://Servicio/Crear_Usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Iniciar_Sesion">
+      <soap12:operation soapAction="http://Servicio/Iniciar_Sesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Leer_Usuarios">
+      <soap12:operation soapAction="http://Servicio/Leer_Usuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Usuario">
+      <soap12:operation soapAction="http://Servicio/Eliminar_Usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_Usuario">
+      <soap12:operation soapAction="http://Servicio/Actualizar_Usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crear_Pedido">
+      <soap12:operation soapAction="http://Servicio/Crear_Pedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Leer_pedidos">
+      <soap12:operation soapAction="http://Servicio/Leer_pedidos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_pedido">
+      <soap12:operation soapAction="http://Servicio/Eliminar_pedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_Pedido">
+      <soap12:operation soapAction="http://Servicio/Actualizar_Pedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost:7298/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost:7298/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
