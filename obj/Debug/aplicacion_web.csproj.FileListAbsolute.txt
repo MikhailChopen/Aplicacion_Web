@@ -1,0 +1,6 @@
+c:\users\antrax\documents\visual studio 2013\Projects\aplicacion_web\aplicacion_web\bin\aplicacion_web.dll.config
+c:\users\antrax\documents\visual studio 2013\Projects\aplicacion_web\aplicacion_web\bin\aplicacion_web.dll
+c:\users\antrax\documents\visual studio 2013\Projects\aplicacion_web\aplicacion_web\bin\aplicacion_web.pdb
+c:\users\antrax\documents\visual studio 2013\Projects\aplicacion_web\aplicacion_web\obj\Debug\aplicacion_web.csprojResolveAssemblyReference.cache
+c:\users\antrax\documents\visual studio 2013\Projects\aplicacion_web\aplicacion_web\obj\Debug\aplicacion_web.dll
+c:\users\antrax\documents\visual studio 2013\Projects\aplicacion_web\aplicacion_web\obj\Debug\aplicacion_web.pdb
